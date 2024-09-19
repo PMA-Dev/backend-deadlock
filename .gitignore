@@ -1,7 +1,29 @@
-node_modules
-dist
-.env
-/node_modules
-node_modules
+~
+# Node modules
 node_modules/
-node_modules/*
+
+# TypeScript compiled files
+dist/
+build/
+
+# Environment variables
+.env
+test.env
+
+# Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+*.pem
+*.pfx
+*.cer
+*.DS_Store
+*.txt
+scp_dist.sh
+tmp
+smoke_check.sh
+x.sh
+logs.json
+test.ts

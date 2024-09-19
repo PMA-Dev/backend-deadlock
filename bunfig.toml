@@ -1,0 +1,3 @@
+preload = ["./src/config/reflectMetadata.ts"]
+sourcemap = "external"
+tsconfig = "tsconfig.json"
