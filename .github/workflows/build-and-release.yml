@@ -68,11 +68,11 @@ jobs:
       - name: Create a Zip package 🐙
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
-          package_id: 'deadlock_backend'
+          package_id: 'deadlock-backend'
           version: ${{ env.PACKAGE_VERSION }}
           output_folder: './artifacts'
           base_path: './dist'
-          files: 'deadlock_backend'
+          files: 'deadlock-backend'
 
       # Push zip package to Octopus
       - name: Push package to Octopus 🐙
@@ -80,7 +80,7 @@ jobs:
         with:
           api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
           server: ${{ secrets.OCTOPUS_SERVER_URL }}
-          packages: "./artifacts/deadlock_backend.${{ env.PACKAGE_VERSION }}.zip"
+          packages: "./artifacts/deadlock-backend.${{ env.PACKAGE_VERSION }}.zip"
           space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
       
       # simplies echos the github.ref var
