@@ -1,16 +1,16 @@
 import 'reflect-metadata';
 import express, { Application, Request, Response, NextFunction } from 'express';
-import { SmsController } from './controllers/SmsController';
 import { container } from 'tsyringe';
 import { CommonConfig, CommonConfigKeys } from './common/CommonConfig';
+import { HomeController } from './controllers/Home';
 
 export class App {
     public app: Application;
-    private smsController: SmsController;
+    private homeController: HomeController;
 
     constructor() {
         this.app = express();
-        this.smsController = container.resolve(SmsController);
+        this.homeController = container.resolve(HomeController);
         this.initializeMiddlewares();
         this.initializeRoutes();
     }
@@ -26,17 +26,7 @@ export class App {
     }
 
     private initializeRoutes() {
-        this.app.get('/', (req: Request, res: Response) => {
-            res.send({ ok: true });
-        });
-        this.app.post(
-            '/sms/send',
-            this.smsController.sendSms.bind(this.smsController)
-        );
-        this.app.get(
-            '/sms/peek',
-            this.smsController.peekSms.bind(this.smsController)
-        );
+        this.app.get('/home', this.homeController.homeGet.bind(this.homeController));
     }
 
     public listen() {
