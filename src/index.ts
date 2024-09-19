@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { logger } from '@azure/identity';
-import { App } from './App';
 import { setup } from './common/AppStart';
+import { App } from './App';
 
 const init = async () => {
     logger.verbose('Starting app...');
