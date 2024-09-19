@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 import { CommonConfig, CommonConfigKeys } from './common/CommonConfig';
 import { HomeController } from './controllers/Home';
 
-export class App {
+export default class App {
     public app: Application;
     private homeController: HomeController;
 
