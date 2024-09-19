@@ -4,7 +4,7 @@ permissions:
   contents: write
 
 on:
-  # also run on push to master
+  # also run on push to main
   push:
     branches:
       - main
@@ -39,13 +39,13 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
 
-      # Push the version bump to the master branch using the PAT
+      # Push the version bump to the main branch using the PAT
       - name: Push version bump
         env:
           GIT_COMMITTER_NAME: GitHub Action
           GIT_COMMITTER_EMAIL: action@github.com
         run: |
-          git commit -am "bumping version" && git push "https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}" HEAD:master --follow-tags
+          git commit -am "bumping version" && git push "https://${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}" HEAD:main --follow-tags
 
       - name: Decode PEM file
         run: echo "${{ secrets.CERTIFICATE_PEM_BASE64 }}" | base64 --decode > ./akv_test_cert.pem
