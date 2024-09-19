@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { Logger } from '../common/Logger';
 import { injectable, inject } from 'tsyringe';
-import { GetHomeResponse } from '../models/GetHomeResponse';
+import { GetHomeResponse } from '@models/GetHomeResponse';
 
 @injectable()
 export class HomeController {

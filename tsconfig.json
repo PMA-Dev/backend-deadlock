@@ -15,6 +15,11 @@
         "node_modules/@types"
     ],
     "lib" : ["es2017", "dom", "ESNext"],
+    "paths": {
+        "@models/*": ["./src/models/*"],
+        "@controllers/*": ["./src/controllers/*"]
+    },
+    "noEmitOnError": true
     // "types" : ["bun-types"]
   },
   "include": ["src/**/*.ts", "src/**/EmbeddedEnv.ts"], 

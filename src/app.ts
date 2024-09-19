@@ -26,7 +26,10 @@ export class App {
     }
 
     private initializeRoutes() {
-        this.app.get('/home', this.homeController.homeGet.bind(this.homeController));
+        this.app.get(
+            '/home',
+            this.homeController.homeGet.bind(this.homeController)
+        );
     }
 
     public listen() {
