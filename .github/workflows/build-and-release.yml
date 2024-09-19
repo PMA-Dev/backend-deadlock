@@ -7,11 +7,11 @@ on:
   # also run on push to master
   push:
     branches:
-      - master
+      - main
 
   workflow_dispatch:
     branches:
-      - master
+      - main
 
 jobs:
   publish:
@@ -61,11 +61,11 @@ jobs:
       - name: Create a Zip package 🐙
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
-          package_id: 'sms_dal'
+          package_id: 'deadlock_backend'
           version: ${{ env.PACKAGE_VERSION }}
           output_folder: './artifacts'
           base_path: './dist'
-          files: 'sms_dal'
+          files: 'deadlock_backend'
 
       # Push zip package to Octopus
       - name: Push package to Octopus 🐙
@@ -73,7 +73,7 @@ jobs:
         with:
           api_key: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
           server: ${{ secrets.OCTOPUS_SERVER_URL }}
-          packages: "./artifacts/sms_dal.${{ env.PACKAGE_VERSION }}.zip"
+          packages: "./artifacts/deadlock_backend.${{ env.PACKAGE_VERSION }}.zip"
           space: ${{ secrets.OCTOPUS_SERVER_SPACE }}
       
       # simplies echos the github.ref var
