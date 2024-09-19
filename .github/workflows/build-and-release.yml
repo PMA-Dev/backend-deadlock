@@ -81,8 +81,9 @@ jobs:
         run: echo ${{ github.ref }}
 
       # Create and deploy release using Octopus Deploy action
-      - name: Deploy a release in Octopus Deploy 🐙
+      - name: Create a release in Octopus Deploy 🐙
         uses: OctopusDeploy/create-release-action@v3
+        id: "create_release"
         env:
           OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
           OCTOPUS_URL: ${{ secrets.OCTOPUS_SERVER_URL }}
@@ -90,5 +91,17 @@ jobs:
         with:
           project: "deadlock-backend"
           package_version: ${{ env.PACKAGE_VERSION }}
+          environments: |
+            Staging
+
+      - name: Deploy a release in Octopus Deploy 🐙
+        uses: OctopusDeploy/deploy-release-action@v3
+        env:
+          OCTOPUS_API_KEY: ${{ secrets.OCTOPUS_SERVER_API_KEY }}
+          OCTOPUS_URL: ${{ secrets.OCTOPUS_SERVER_URL }}
+          OCTOPUS_SPACE: ${{ secrets.OCTOPUS_SERVER_SPACE }}
+        with:
+          project: 'deadlock-backend'
+          release_number: ${{ steps.create_release.outputs.release_number }}
           environments: |
             Staging
