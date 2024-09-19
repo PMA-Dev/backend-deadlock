@@ -50,6 +50,13 @@ jobs:
       - name: Decode PEM file
         run: echo "${{ secrets.CERTIFICATE_PEM_BASE64 }}" | base64 --decode > ./akv_test_cert.pem
 
+      - name: DEBUG
+        run: |
+          ls .
+          ls ./src
+          cat ./src/index.ts
+          cat ./src/App.ts
+
       - name: Build
         run: bun run build
 
