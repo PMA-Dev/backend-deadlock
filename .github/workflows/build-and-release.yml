@@ -65,7 +65,7 @@ jobs:
           version: ${{ env.PACKAGE_VERSION }}
           output_folder: './artifacts'
           base_path: './dist'
-          files: 'backend-deadlock'
+          files: 'deadlock-backend'
 
       # Push zip package to Octopus
       - name: Push package to Octopus 🐙

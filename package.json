@@ -1,5 +1,5 @@
 {
-    "name": "backend-deadlock",
+    "name": "deadlock-backend",
     "bin": "dist/index.js",
     "main": "src/index.js",
     "version": "0.0.13",
