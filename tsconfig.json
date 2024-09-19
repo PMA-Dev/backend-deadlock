@@ -22,6 +22,6 @@
     "noEmitOnError": true
     // "types" : ["bun-types"]
   },
-  "include": ["src/**/*.ts", "src/**/EmbeddedEnv.ts"], 
+  "include": ["src/**/*.ts", "src/**/EmbeddedEnv.ts", "src/App.ts"], 
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
