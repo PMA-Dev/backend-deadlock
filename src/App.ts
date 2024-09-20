@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { container } from 'tsyringe';
-import { CommonConfig, CommonConfigKeys } from '@common/CommonConfig';
-import { HomeController } from '@controllers/Home';
-import { TestDbController } from '@controllers/TestDb';
+import { CommonConfig, CommonConfigKeys } from './common/CommonConfig';
+import { HomeController } from './controllers/Home';
+import { TestDbController } from './controllers/TestDb';
 
 export default class App {
     public app: Application;

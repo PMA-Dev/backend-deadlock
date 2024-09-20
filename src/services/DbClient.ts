@@ -1,8 +1,8 @@
 import 'reflect-metadata';
-import { Logger } from '@/common/Logger';
+import { Logger } from '../common/Logger';
 import { Db, Document, Filter, MongoClient } from 'mongodb';
 import { inject, injectable } from 'tsyringe';
-import { CommonConfig, CommonConfigKeys } from '@/common/CommonConfig';
+import { CommonConfig, CommonConfigKeys } from '../common/CommonConfig';
 
 // Replace the following with your Atlas connection string
 

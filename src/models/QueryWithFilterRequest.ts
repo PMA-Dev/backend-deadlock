@@ -1,4 +1,4 @@
-import { CommonResponse } from '@/common/CommonResponse';
+import { CommonResponse } from '../common/CommonResponse';
 import Joi from 'joi';
 import { Filter, Document } from 'mongodb';
 

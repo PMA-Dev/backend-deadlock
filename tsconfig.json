@@ -16,13 +16,6 @@
         "node_modules/@types"
     ],
     "lib" : ["es2017", "dom", "ESNext"],
-    "paths": {
-        "@models/*": ["./src/models/*"],
-        "@controllers/*": ["./src/controllers/*"],
-        "@/*": ["./src/*"],
-        "@common/*": ["./src/common/*"],
-        "@services/*": ["./src/services/*"]
-    },
     "noEmitOnError": true
     // "types" : ["bun-types"]
   },

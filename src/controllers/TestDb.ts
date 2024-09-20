@@ -1,14 +1,14 @@
 import 'reflect-metadata';
 import { NextFunction, Request, Response } from 'express';
-import { Logger } from '@/common/Logger';
+import { Logger } from '../common/Logger';
 import { injectable, inject } from 'tsyringe';
-import { DbClient } from '@services/DbClient';
-import { QueryWithFilterResponse } from '@models/QueryWithFilterResponse';
+import { DbClient } from '../services/DbClient';
+import { QueryWithFilterResponse } from '../models/QueryWithFilterResponse';
 import {
     QueryWithFilterRequest,
     queryWithFilterRequestSchema,
-} from '@models/QueryWithFilterRequest';
-import { validateAndSendIfFail } from '@/common/utils';
+} from '../models/QueryWithFilterRequest';
+import { validateAndSendIfFail } from '../common/utils';
 
 @injectable()
 export class TestDbController {
