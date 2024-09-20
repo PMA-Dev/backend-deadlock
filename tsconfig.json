@@ -19,7 +19,9 @@
     "paths": {
         "@models/*": ["./src/models/*"],
         "@controllers/*": ["./src/controllers/*"],
-        "@/*": ["./src/*"]
+        "@/*": ["./src/*"],
+        "@common/*": ["./src/common/*"],
+        "@services/*": ["./src/services/*"]
     },
     "noEmitOnError": true
     // "types" : ["bun-types"]

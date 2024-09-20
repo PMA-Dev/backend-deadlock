@@ -49,7 +49,7 @@
         "win-ca": "^3.5.1"
     },
     "scripts": {
-        "start": "bun src/index.ts",
+        "start": "bun src/index.ts --hot",
         "format": "prettier --write \"src/**/*.{js,ts,tsx,json}\"",
         "build": "bun run clean &&  tsc && bun run embed-env && bun pkg . --targets node18-linux-x64 --options max_old_space_size=4096  --no-bytecode --public-packages '*' --public && cp local.env dist/",
         "env-bump": "bun src/scripts/pushNewSecretFile.ts",

@@ -1,16 +1,19 @@
 import 'reflect-metadata';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { container } from 'tsyringe';
-import { CommonConfig, CommonConfigKeys } from './common/CommonConfig';
-import { HomeController } from './controllers/Home';
+import { CommonConfig, CommonConfigKeys } from '@common/CommonConfig';
+import { HomeController } from '@controllers/Home';
+import { TestDbController } from '@controllers/TestDb';
 
 export default class App {
     public app: Application;
     private homeController: HomeController;
+    private testDbController: TestDbController;
 
     constructor() {
         this.app = express();
         this.homeController = container.resolve(HomeController);
+        this.testDbController = container.resolve(TestDbController);
         this.initializeMiddlewares();
         this.initializeRoutes();
     }
@@ -29,6 +32,11 @@ export default class App {
         this.app.get(
             '/home',
             this.homeController.homeGet.bind(this.homeController)
+        );
+
+        this.app.post(
+            '/test/query',
+            this.testDbController.queryWithFilter.bind(this.testDbController)
         );
     }
 

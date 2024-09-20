@@ -8,5 +8,8 @@ export const embeddedEnv = {
   "AZURE_CLIENT_ID": "044b938d-a250-48ed-9477-cc8cdfd7e85f",
   "SECRET_FILE_VER": "efc4e13d73b84d3ba789d466a7d380d3",
   "PORT_TO_USE": "5080",
-  "HOST_TO_USE": "0.0.0.0"
+  "HOST_TO_USE": "0.0.0.0",
+  "MONGO_CLUSTER_NAME": "deadlock",
+  "MONGO_DB_NAME": "test",
+  "MONGO_TABLE_NAME": "test-misc"
 };

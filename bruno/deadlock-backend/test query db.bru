@@ -1,0 +1,15 @@
+meta {
+  name: test query db
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/test/query
+  body: json
+  auth: none
+}
+
+body:json {
+  {"filter": {"name": "testa"}}
+}
