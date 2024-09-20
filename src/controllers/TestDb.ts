@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { NextFunction, Request, Response } from 'express';
-import { Logger } from '@common/Logger';
+import { Logger } from '@/common/Logger';
 import { injectable, inject } from 'tsyringe';
 import { DbClient } from '@services/DbClient';
 import { QueryWithFilterResponse } from '@models/QueryWithFilterResponse';
@@ -8,7 +8,7 @@ import {
     QueryWithFilterRequest,
     queryWithFilterRequestSchema,
 } from '@models/QueryWithFilterRequest';
-import { validateAndSendIfFail } from '@common/utils';
+import { validateAndSendIfFail } from '@/common/utils';
 
 @injectable()
 export class TestDbController {
@@ -30,13 +30,14 @@ export class TestDbController {
             this.logger.info('filter:', filter);
             if (!data) {
                 this.logger.error('No document found sending 404');
-                res.status(404).json({ 
-                    error: `No document found with filter ${JSON.stringify(filter)}` });
+                res.status(404).json({
+                    error: `No document found with filter ${JSON.stringify(filter)}`,
+                });
                 return;
             }
             res.json({ data });
         } catch (e) {
-            this.logger.error("caught error at testdbquery", e);
+            this.logger.error('caught error at testdbquery', e);
             next(e);
         }
     }
